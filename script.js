@@ -43,8 +43,13 @@ function reset() {
 
     playing = true;
 
+
+    document.querySelectorAll('[data-item]').forEach(item =>{
+        item.style.backgroundColor = '';
+    })
     renderSquare();
     renderInfo();
+
 }
 
 
@@ -101,7 +106,17 @@ function checkwinnerFor(player) {
 
         let haswon = parray.every(Option => square[Option] === player);
         if (haswon) {
+
+            //aplicando cor nos quadrados vermelhos.
+
+            parray.forEach(item => {
+                document.querySelector(`[data-item="${item}"]`).style.backgroundColor = 'green'; // valor de atributo tem que esta entre aspas.
+
+            })
+
             return true;
+
+
         }
     }
 
